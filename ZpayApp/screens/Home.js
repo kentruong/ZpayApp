@@ -6,7 +6,9 @@ import {
     View,
     Text,
     StatusBar,
+    FlatList,
     TouchableOpacity,
+    ImageBackground,
 } from 'react-native';
 
 import {
@@ -17,24 +19,75 @@ import {
     ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import ArrayTransaction from "../datas/arrayTransaction"
+import ItemRecent from "./itemRecent"
+
 import IconAntDesign from 'react-native-vector-icons/AntDesign'
 
-const Item = ({title, icon, backgroundColor, onHandlePress}) => {
-    return(
+const Item = ({ title, icon, backgroundColor, onHandlePress }) => {
+    return (
         <TouchableOpacity onPress={onHandlePress}>
             <View style={styles.itemsTransaction}>
                 <IconAntDesign style={[styles.iconTransaction, { backgroundColor: backgroundColor }]} name={icon} color="#eee" size={30} />
-                <Text style={styles.textWhite}>{title}</Text>
+                <Text style={styles.textTransaction}>{title}</Text>
             </View>
         </TouchableOpacity>
     )
-}
+};
+
+// const ItemRecent = (props) => {
+//     const image = { uri: props.link };
+//     console.log(props.link);
+//     return (
+//         <TouchableOpacity>
+//             <View>
+//                 <View>
+//                     <ImageBackground style={styles.ImageBackgrounds} source={image}></ImageBackground>
+//                     <Text>{props.name}</Text>
+//                 </View>
+//             </View>
+//         </TouchableOpacity>
+//     )
+// }
+
+// const ArrayTransaction = [
+//     {
+//         title: "Tranfer",
+//         icon: "linechart",
+//         backgroundColor: "#9A71F3",
+//     },
+//     {
+//         title: "Exchange",
+//         icon: "export",
+//         backgroundColor: "#FFC757",
+//     },
+//     {
+//         title: "Rate",
+//         icon: "API",
+//         backgroundColor: "#F3D671",
+//     },
+//     {
+//         title: "Withdraw",
+//         icon: "swap",
+//         backgroundColor: "#85E8BC",
+//     },
+//     {
+//         title: "Request",
+//         icon: "codepen",
+//         backgroundColor: "#5599FF",
+//     },
+//     {
+//         title: "Recent",
+//         icon: "tago",
+//         backgroundColor: "#FE724F",
+//     },
+// ];
 
 class Home extends Component {
 
-_doWork = (param) => () => {
- console.log(param)
-}
+    _doWork = (param) => () => {
+        console.log(param)
+    }
     render() {
         return (
             <View style={styles.parentHome}>
@@ -50,73 +103,20 @@ _doWork = (param) => () => {
                 </View>
                 <View style={styles.groupTransaction}>
                     <View style={styles.rowTransaction}>
-                        {/* <TouchableOpacity>
-                            <View style={styles.itemsTransaction}>
-                                <IconAntDesign style={[styles.iconTransaction, { backgroundColor: "#9A71F3" }]} name="qrcode" color="#eee" size={30} />
-                                <Text style={styles.textWhite}>Tranfer</Text>
-                            </View>
-                        </TouchableOpacity> */}
-                        {new Array(3).fill().map((value, index) => {
-                             return <Item title={'Tranfer'} icon={'qrcode'} backgroundColor={'#9A71F3'} onHandlePress={() => {}}/>
-                        })}
-                       
-                        {/* <Item title={'Exchange'} icon={'qrcode'} backgroundColor={'#FFC757'} onHandlePress={() => {}}/>
-                        <Item title={'Exchange'} icon={'qrcode'} backgroundColor={'#FFC757'} onHandlePress={() => {}}/>
-                        <Item title={'Exchange'} icon={'qrcode'} backgroundColor={'#FFC757'} onHandlePress={() => {}}/>
-                        <Item title={'Exchange'} icon={'qrcode'} backgroundColor={'#FFC757'} onHandlePress={() => {}}/>
-                        <Item title={'Exchange'} icon={'qrcode'} backgroundColor={'#FFC757'} onHandlePress={() => {}}/> */}
-                        {/* <TouchableOpacity>
-                            <View style={styles.itemsTransaction}>
-                                <IconAntDesign style={[styles.iconTransaction, { backgroundColor: "#FFC757" }]} name="qrcode" color="#eee" size={30} />
-                                <Text style={styles.textWhite}>Exchange</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <View style={styles.itemsTransaction}>
-                            <IconAntDesign style={[styles.iconTransaction, { backgroundColor: "#F3D671" }]} name="qrcode" color="#eee" size={30} />
-                            <Text style={styles.textWhite}>Rate</Text>
-                        </View> */}
+                        <FlatList
+                            data={ArrayTransaction}
+                            renderItem={({ item, index }) => <View style={styles.arrayTransaction}>
+                                <Item title={item.title} icon={item.icon} backgroundColor={item.backgroundColor} />
+                            </View>}
+                            numColumns={3}
+                            keyExtractor={(item, index) => {
+                                return index;
+                            }}
+                        />
                     </View>
-                    <View style={styles.rowTransaction}>
-                        {/* <TouchableOpacity>
-                            <View style={styles.itemsTransaction}>
-                                <IconAntDesign style={[styles.iconTransaction, { backgroundColor: "#9A71F3" }]} name="qrcode" color="#eee" size={30} />
-                                <Text style={styles.textWhite}>Tranfer</Text>
-                            </View>
-                        </TouchableOpacity> */}
-                        {new Array(3).fill().map((value, index) => {
-                             return <Item title={'Tranfer'} icon={'qrcode'} backgroundColor={'#9A71F3'} onHandlePress={() => {}}/>
-                        })}
-                       
-                        {/* <Item title={'Exchange'} icon={'qrcode'} backgroundColor={'#FFC757'} onHandlePress={() => {}}/>
-                        <Item title={'Exchange'} icon={'qrcode'} backgroundColor={'#FFC757'} onHandlePress={() => {}}/>
-                        <Item title={'Exchange'} icon={'qrcode'} backgroundColor={'#FFC757'} onHandlePress={() => {}}/>
-                        <Item title={'Exchange'} icon={'qrcode'} backgroundColor={'#FFC757'} onHandlePress={() => {}}/>
-                        <Item title={'Exchange'} icon={'qrcode'} backgroundColor={'#FFC757'} onHandlePress={() => {}}/> */}
-                        {/* <TouchableOpacity>
-                            <View style={styles.itemsTransaction}>
-                                <IconAntDesign style={[styles.iconTransaction, { backgroundColor: "#FFC757" }]} name="qrcode" color="#eee" size={30} />
-                                <Text style={styles.textWhite}>Exchange</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <View style={styles.itemsTransaction}>
-                            <IconAntDesign style={[styles.iconTransaction, { backgroundColor: "#F3D671" }]} name="qrcode" color="#eee" size={30} />
-                            <Text style={styles.textWhite}>Rate</Text>
-                        </View> */}
-                    </View>
-                    {/* <View style={styles.rowTransaction}>
-                        <View style={styles.itemsTransaction}>
-                            <IconAntDesign style={[styles.iconTransaction, { backgroundColor: "#85E8BC" }]} name="qrcode" color="#eee" size={30} />
-                            <Text style={styles.textWhite}>Widraww</Text>
-                        </View>
-                        <View style={styles.itemsTransaction}>
-                            <IconAntDesign style={[styles.iconTransaction, { backgroundColor: "#5599FF" }]} name="qrcode" color="#eee" size={30} />
-                            <Text style={styles.textWhite}>Request</Text>
-                        </View>
-                        <View style={styles.itemsTransaction}>
-                            <IconAntDesign style={[styles.iconTransaction, { backgroundColor: "#FE724F" }]} name="qrcode" color="#eee" size={30} />
-                            <Text style={styles.textWhite}>Recent</Text>
-                        </View>
-                    </View> */}
+                </View>
+                <View style={styles.groupTransaction}>
+                    <ItemRecent />
                 </View>
             </View>
         )
@@ -150,28 +150,34 @@ const styles = StyleSheet.create({
     },
     groupTransaction: {
         width: "100%",
-        padding: 4
     },
     rowTransaction: {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
         marginVertical: 8,
-        paddingHorizontal: 16,
+        width: "100%",
+    },
+    arrayTransaction: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-around",
+        flex: 1,
     },
     itemsTransaction: {
         alignItems: "center",
         justifyContent: "center",
-        margin: 8
+        margin: 8,
+        flex: 1,
     },
     iconTransaction: {
         padding: 12,
         borderRadius: 10,
     },
-    textWhite: {
+    textTransaction: {
         color: "#000267",
         marginTop: 4,
         fontSize: 18
-    }
+    },
 })
 export default Home;
