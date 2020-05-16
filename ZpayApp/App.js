@@ -29,16 +29,16 @@ import Home from './screens/Home';
 class App extends Component {
     render() {
         return (
-            <View style={styles.wrapper}>
+            // <View style={styles.wrapper}>
                 <Home />
-            </View>
+            // </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    wrapper: {
-        padding: 16,
-    }
+    // wrapper: {
+    //     padding: 16,
+    // }
 })
 export default App;

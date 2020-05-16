@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 
 
-import ArrayTransaction from "../datas/arrayTransaction"
 import ArrayRecentTransaction from "../datas/arrayRecentTransaction"
 
 import IconAntDesign from 'react-native-vector-icons/AntDesign'
@@ -35,7 +34,7 @@ const Item = (props) => {
     )
 }
 
-class ItemRecent extends Component {
+class ListRecent extends Component {
 
     _doWork = (param) => () => {
         console.log(param)
@@ -44,18 +43,24 @@ class ItemRecent extends Component {
         return (
             <View style={styles.parentRecent}>
                 <View>
-                    <Text style={styles.titles}>Recent transaction</Text>
+                    {/* <Text style={styles.titles}>Recent transaction</Text> */}
                 </View>
                 <View style={styles.groupRecent}>
                     <View style={styles.rowRecent}>
-                        <FlatList
+                        <FlatList keyExtractor={(item, index) => {
+                            return index.toString();
+                        }}
                             data={ArrayRecentTransaction}
                             renderItem={({ item, index }) => <Item link={item.link} name={item.name} time={item.time} point={item.point} status={item.status}
-                                keyExtractor={(item, index) => {
-                                    return index;
-                                }}
+
                             />}
                         />
+                        {/* <FlatList
+                            data={[{ name: 'a' }, { name: 'b' }]}
+                            renderItem={
+                                (item) => <Text key={Math.random().toString()}>{item.name}</Text>
+                            }
+                            key={Math.random().toString()} /> */}
                     </View>
                 </View>
             </View>
@@ -84,7 +89,7 @@ const styles = StyleSheet.create({
         height: 50,
         borderRadius: 5,
     },
-    
+
     titles: {
         fontWeight: 'bold',
         fontSize: 18,
@@ -121,6 +126,9 @@ const styles = StyleSheet.create({
     },
     status: {
         color: "#39CB73"
+    },
+    parentRecent: {
+        paddingHorizontal: 16
     }
 })
-export default ItemRecent;
+export default ListRecent;
