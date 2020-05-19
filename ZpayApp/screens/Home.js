@@ -84,7 +84,7 @@ class Home extends Component {
     render() {
         return (
             <NavigationContainer>
-                <View style={styles.parentHome}>
+                {/* <View style={styles.parentHome}>
                     <View style={styles.groupScan}>
                         <View style={styles.Scan}>
                             <IconAntDesign name="scan1" color="#eee" size={45} />
@@ -109,7 +109,7 @@ class Home extends Component {
                             />
                         </View>
                     </View>
-                </View>
+                </View> */}
                 <MyTabs />
             </NavigationContainer>
         )
