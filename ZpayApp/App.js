@@ -24,21 +24,30 @@ import {
     ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import Home from './screens/Home';
+// import Home from './screens/Home';
+// import Robot from './components/Robot';
+// import MultipleGreetings from './components/MultipleGreetings';
+import Home from "./screens/Home/Home"
 
 class App extends Component {
     render() {
         return (
             // <View style={styles.wrapper}>
-                <Home />
+            //     <Robot />
+            //     <MultipleGreetings />
+            //     <Home />
             // </View>
+            <View style={styles.wrapper}>
+                <Home />
+            </View>
+
         )
     }
 }
 
 const styles = StyleSheet.create({
-    // wrapper: {
-    //     padding: 16,
-    // }
+    wrapper: {
+        flex: 1,
+    }
 })
 export default App;
