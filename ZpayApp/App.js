@@ -28,6 +28,8 @@ import {
 // import Robot from './components/Robot';
 // import MultipleGreetings from './components/MultipleGreetings';
 import Home from "./screens/Home/Home"
+import MyCarousel from "./screens/MyCarousel"
+// import Demo from "./screens/Demo"
 
 class App extends Component {
     render() {
@@ -39,6 +41,8 @@ class App extends Component {
             // </View>
             <View style={styles.wrapper}>
                 <Home />
+                <MyCarousel />
+                {/* <Demo /> */}
             </View>
 
         )
