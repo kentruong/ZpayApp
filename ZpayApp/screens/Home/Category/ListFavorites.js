@@ -86,7 +86,6 @@ class ListFavorites extends Component {
     render() {
         return (
             <SafeAreaView style={{ paddingBottom: 24, borderBottomLeftRadius: 20, borderTopLeftRadius: 20 }}>
-                {/* <ScrollView style={styles.scrollView}> */}
                 <Text style={styles.tileFavorites}>Yêu thích</Text>
                 <View style={{ position: "relative", flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                     <Carousel
@@ -105,12 +104,9 @@ class ListFavorites extends Component {
                         renderItem={this._renderItem}
                         onSnapToItem={index => this.setState({ activeIndex: index })} />
                     <View style={styles.buttonAdd}>
-                        <IconAntDesign name="plus" color="#fff" style={{ fontWeight:"bold" }} size={42} />
+                        <IconAntDesign name="plus" color="#fff" style={{ fontWeight: "bold" }} size={42} />
                     </View>
                 </View>
-                <View style={{ height: 200, width: "100%" }}></View>
-                {/* </ScrollView> */}
-
             </SafeAreaView>
         );
     }
@@ -122,6 +118,7 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         paddingLeft: 24,
         marginBottom: 14,
+        paddingTop: 8,
     },
     imageBackground: {
         flex: 1,

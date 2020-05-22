@@ -19,9 +19,9 @@ import {
     ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import ArrayTransaction from "../datas/arrayTransaction"
-import ListRecent from "./ListRecent"
-import ListCard from "./ListCard"
+import ArrayTransaction from "../datas/arrayTransaction";
+import ListRecent from "./ListRecent";
+import ListCard from "./ListCard";
 
 import IconAntDesign from 'react-native-vector-icons/AntDesign'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';

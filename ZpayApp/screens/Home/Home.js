@@ -8,8 +8,11 @@ import {
     StatusBar,
 } from 'react-native';
 
-import Header from "./Header"
-import Body from "./Body"
+import Header from "./Header";
+import Body from "./Body";
+
+import MenuForYou from "./MenuForYou";
+import BonusRecent from "./BonusRecent";
 
 
 class Home extends Component {
@@ -18,6 +21,8 @@ class Home extends Component {
             <View style={styles.layoutHome}>
                 <Header />
                 <Body />
+                <MenuForYou />
+                <BonusRecent />
             </View>
         )
     }
