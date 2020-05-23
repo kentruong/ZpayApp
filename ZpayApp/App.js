@@ -27,7 +27,8 @@ import {
 // import Home from './screens/Home';
 // import Robot from './components/Robot';
 // import MultipleGreetings from './components/MultipleGreetings';
-import Home from "./screens/Home/Home"
+// import Home from "./screens/Home/Home"
+import MainCategory from "./screens/Category/MainCategory"
 // import Demo from "./screens/Demo"
 
 class App extends Component {
@@ -40,7 +41,8 @@ class App extends Component {
             // </View>
             <View style={styles.wrapper}>
                 <ScrollView style={styles.scrollView} >
-                    <Home />
+                    {/* <Home /> */}
+                    <MainCategory />
                 </ScrollView>
 
 
@@ -56,7 +58,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     scrollView: {
-        // backgroundColor: 'pink',
+        // backgroundColor: "pink"
     },
 })
 export default App;

@@ -29,6 +29,8 @@ class Home extends Component {
 }
 
 const styles = StyleSheet.create({
+    layoutHome: {
 
+    }
 });
 export default Home;
